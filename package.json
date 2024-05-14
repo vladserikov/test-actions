@@ -1,0 +1,11 @@
+{
+    "name": "demo",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "commonjs",
+    "scripts": {
+        "test": "node --test"
+    },
+    "author": "Vlad Serikov <vladikserikov@gmail.com>",
+    "license": "MIT"
+}
