@@ -29,5 +29,5 @@ jobs:
         id: patch-version
         run: yarn version --patch
 
-      - name: Echo version
-        run: echo ${{ step }}
+      - name: Tets status
+        run: git status
