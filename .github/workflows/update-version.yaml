@@ -1,0 +1,12 @@
+name: Test joba
+run-name: Look at me
+on:
+  workflow_dispatch:
+
+jobs:
+  start-run:
+    run-on: ubuntu-latest
+
+    steps:
+      - name: Job echo
+        run: echo "Job run"
