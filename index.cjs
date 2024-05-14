@@ -5,4 +5,7 @@ module.exports = {
     foo: (a) => {
         return a + 1;
     },
+    baz: () => {
+        console.log('Test');
+    },
 };
