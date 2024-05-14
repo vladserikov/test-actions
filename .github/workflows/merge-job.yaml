@@ -30,4 +30,4 @@ jobs:
         run: yarn version --patch
 
       - name: Echo version
-        run: ${{ step.patch-version }}
+        run: echo ${{ step }}
