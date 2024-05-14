@@ -1,27 +1,33 @@
-name: Release
+# name: Release
 
-on:
-  push:
-    branches: [main, develop]
+# on:
+#   push:
+#     branches: [main, develop]
 
-jobs:
-  test-mode:
-    - name: Action test
-      uses: ./.github/workflow/test-pr.yaml
+# jobs:
+#   test-mode:
+#     - name: Action test
+#       uses: ./.github/workflow/test-pr.yaml
   
-  patch:
-    needs: test-mode
-    if: ${{ github.event.ref == 'refs/head/develop' }}
-    runs-on: ubuntu-latest
+#   patch:
+#     needs: test-mode
+#     if: ${{ github.event.ref == 'refs/head/develop' }}
+#     runs-on: ubuntu-latest
 
-    steps:      
-      - name: Current version
-        id: get-current-version
-        run: echo "Current version: $(cat package.json | jq -r .version)"
+#     steps:
+#       - uses: actions/checkout@v4
+# 			- uses: actions/setup-node@v4
+# 			  with: 
+# 				  node-version: '20'
+#           caches: yarn
+      
+#       - name: Current version
+#         id: get-current-version
+#         run: echo "Current version: $(cat package.json | jq -r .version)"
 
-      - name: Create patch
-        if: ${{ github.event.type == 'push' && github.event.ref == 'refs/heads/develop' }}
-        run: /
-          npx --quiet semver bump patch package.json
-          git add package.json
-          git commit -m "Bump patch"
+#       - name: Create patch
+#         if: ${{ github.event.type == 'push' && github.event.ref == 'refs/heads/develop' }}
+#         run: /
+#           npx --quiet semver bump patch package.json
+#           git add package.json
+#           git commit -m "Bump patch"
