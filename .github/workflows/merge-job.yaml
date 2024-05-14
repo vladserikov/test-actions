@@ -22,9 +22,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Test
+        run: yarn test
+
       - name: Patch
         id: patch-version
-        run: /
-          yarn version --patch
-          git add package.json
-          git commit -m "Bump patch"
+        run: yarn version --patch
+
+      - name: Echo version
+        run: ${{ step.patch-version }}
