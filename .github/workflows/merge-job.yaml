@@ -24,7 +24,8 @@ jobs:
 
       - name: Patch
         id: patch-version
-        run: /
-          yarn version --patch
-          git add package.json
-          git commit -m "${{ steps.patch-version }}"
+        run: yarn version --patch
+
+      - name: Echo version
+        run: ${{ step.patch-version }}
+
