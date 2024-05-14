@@ -27,4 +27,4 @@ jobs:
         run: /
           yarn version --patch
           git add package.json
-          git commit -m "${{ steps.patch-version }}"
+          git commit -m "Bump patch"
