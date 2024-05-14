@@ -11,7 +11,7 @@ jobs:
   
   patch:
     needs: test-mode
-    if: ${{ github.event.ref == 'refs/head/develop' &&  }}
+    if: ${{ github.event.ref == 'refs/head/develop' }}
     runs-on: ubuntu-latest
 
     steps:
