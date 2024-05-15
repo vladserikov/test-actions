@@ -1,0 +1,27 @@
+name: Release
+
+on:
+    push: 
+        branches: 
+            - develop
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+                cache: 'yarn'
+                cache-dependency-path: yarn.lock
+            
+            - name: Release
+              env:
+                GITHUB_TOKEN: ${{ github.token }}
+              run: /
+                yarn install
+                yarn release
