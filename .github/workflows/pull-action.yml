@@ -9,10 +9,10 @@ on:
 jobs:
     name-pr:
         runs-on: ubuntu-latest
-        name: Name job ${{ github.action_status }}
+        name: Name job ${{ github.actor }}
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
                 node-version: '20'
-            - run: yarn version
+            - run: yarn --version
