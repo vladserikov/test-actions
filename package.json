@@ -13,5 +13,6 @@
         "@semantic-release/git": "^10.0.1",
         "@semantic-release/github": "^10.0.3",
         "semantic-release": "^23.1.1"
-    }
+    },
+    "repository": "git@github.com:vladserikov/test-actions.git"
 }
