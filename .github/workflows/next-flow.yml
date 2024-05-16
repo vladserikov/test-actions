@@ -3,13 +3,11 @@ name: next
 on:
     workflow_run: 
         workflows: [Release]
-        types: 
-            - completed
+        types: [completed]
 
 jobs:
     success-event:
         name: success
-        if: ${{ github.event.workflow_run.conclusion }}
         runs-on: ubuntu-latest
         steps:
             - name: run Next
