@@ -1,33 +1,11 @@
-# name: Release
+name: release
 
-# on:
-#   push:
-#     branches: [main, develop]
+on: [push]
 
-# jobs:
-#   test-mode:
-#     - name: Action test
-#       uses: ./.github/workflow/test-pr.yaml
-  
-#   patch:
-#     needs: test-mode
-#     if: ${{ github.event.ref == 'refs/head/develop' }}
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/checkout@v4
-# 			- uses: actions/setup-node@v4
-# 			  with: 
-# 				  node-version: '20'
-#           caches: yarn
-      
-#       - name: Current version
-#         id: get-current-version
-#         run: echo "Current version: $(cat package.json | jq -r .version)"
-
-#       - name: Create patch
-#         if: ${{ github.event.type == 'push' && github.event.ref == 'refs/heads/develop' }}
-#         run: /
-#           npx --quiet semver bump patch package.json
-#           git add package.json
-#           git commit -m "Bump patch"
+jobs:
+  run-job:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: j1
+        run: echo '${{ steps }}'
