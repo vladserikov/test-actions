@@ -2,8 +2,9 @@ name: next
 
 on:
     workflow_run: 
-        workflows: ["release"]
-        types: [completed]
+        workflows: [release]
+        types:
+            - completed
 
 jobs:
     success-event:
