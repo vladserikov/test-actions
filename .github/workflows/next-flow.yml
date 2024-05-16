@@ -1,0 +1,25 @@
+name: next
+
+on:
+    workflow_run: 
+        workflows: [Release]
+        types: 
+            - completed
+
+jobs:
+    success-event:
+        name: success
+        if: ${{ github.event.workflow_run.conclusion }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: run Next
+              run: echo 'Next ready'
+
+    after-success-event:
+        name: Result
+        needs: success-event
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo
+              run: echo 'All success'
+        
