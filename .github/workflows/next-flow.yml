@@ -2,7 +2,7 @@ name: next
 
 on:
     workflow_run: 
-        workflows: [Release]
+        workflows: [release]
         types: [completed]
 
 jobs:
