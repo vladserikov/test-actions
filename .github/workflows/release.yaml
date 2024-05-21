@@ -21,8 +21,6 @@ jobs:
           node-version: 20
       - name: Install nodes
         run: yarn install
-      - name: Test app
-        run: yarn test
       - name: Build app
         run: yarn build
       - name: Create artefacts

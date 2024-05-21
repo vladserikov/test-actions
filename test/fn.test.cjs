@@ -1,4 +1,4 @@
-const { fn } = require('../index.cjs');
+const { fn } = require('../src/index');
 const { test, describe } = require('node:test');
 const assert = require('node:assert');
 
@@ -8,4 +8,3 @@ describe('Test group', () => {
         assert.equal(result, 2);
     });
 });
-

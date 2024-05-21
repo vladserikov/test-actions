@@ -4,7 +4,7 @@
     "main": "index.js",
     "type": "commonjs",
     "scripts": {
-        "test": "node --test",
+        "test": "ts-node --test",
         "build": "tsc",
         "release": "semantic-release"
     },
@@ -12,7 +12,9 @@
     "license": "MIT",
     "devDependencies": {
         "@semantic-release/git": "^10.0.1",
+        "@types/node": "^20.12.12",
         "semantic-release": "^23.1.1",
+        "ts-node": "^10.9.2",
         "typescript": "^5.4.5"
     },
     "repository": "git@github.com:vladserikov/test-actions.git",
