@@ -40,6 +40,10 @@ jobs:
           name: release-build
       - name: Check data
         run: ls
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: '*'
 # jobs:
 #   run-job:
 #     name: Job 1
