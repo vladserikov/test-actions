@@ -37,7 +37,34 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           path: build
-      - name: Release
-        run: npx semantic-release
+      - name: Ls
+        run: ls
+      - name: Tag version
+        id: tag-bump
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          yarn version patch -m "chore(release): %s"
+          VERSION=$(node -p "require('./package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          git push --follow-tags
+      
+      - name: Create release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{env.VERSION}}
+          release_name: Release ${{env.VERSION}}
+          draft: false
+          prerelease: false
+
+      - name: Upload build artifact to release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build
+          asset_name: build-artifact.zip
+          asset_content_type: application/zip
+
+      
