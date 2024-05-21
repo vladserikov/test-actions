@@ -1,0 +1,1 @@
+[![App CI](https://github.com/vladserikov/test-actions/actions/workflows/release.yaml/badge.svg?branch=main)](https://github.com/vladserikov/test-actions/actions/workflows/release.yaml)
