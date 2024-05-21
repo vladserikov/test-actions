@@ -1,11 +1,38 @@
 name: Yml 1
 
-on: [push]
+on: 
+  push: 
+    branches: [main]
+
+permissions: 
+  contents: read
 
 jobs:
   run-job:
     name: Job 1
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write
+      issues: write
+      id-token: write
+      pull-requests: write
     steps:
       - name: j1
         run: echo '${{ toJson(runner) }}'
+      - name: Load repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_AUTH_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+      - uses: actions/upload-artifact@v4
+        with:
+          path: build/
+      - name: Release
+        run: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

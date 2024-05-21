@@ -5,14 +5,16 @@
     "type": "commonjs",
     "scripts": {
         "test": "node --test",
+        "build": "tsc",
         "release": "semantic-release"
     },
     "author": "Vlad Serikov <vladikserikov@gmail.com>",
     "license": "MIT",
     "devDependencies": {
         "@semantic-release/git": "^10.0.1",
-        "@semantic-release/github": "^10.0.3",
-        "semantic-release": "^23.1.1"
+        "semantic-release": "^23.1.1",
+        "typescript": "^5.4.5"
     },
-    "repository": "git@github.com:vladserikov/test-actions.git"
+    "repository": "git@github.com:vladserikov/test-actions.git",
+    "dependencies": {}
 }
