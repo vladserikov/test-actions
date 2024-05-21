@@ -30,6 +30,8 @@ jobs:
           node-version: '20'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
+      - name: install
+        run: yarn
       - name: Create build
         run: yarn build
       - uses: actions/upload-artifact@v4
